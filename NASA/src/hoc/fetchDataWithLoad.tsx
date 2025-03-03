@@ -15,23 +15,17 @@ export const fetchDataWithLoad = <T, P extends FetchDataWithLoadProps<T>>(
   return (props: Omit<P, keyof FetchDataWithLoadProps<T>>) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [fetchedData, setFetchedData] = useState<T | null>(null);
-    const [isMounted, setIsMounted] = useState<boolean>(true);
 
     useEffect(() => {
-      setIsMounted(true);
-
       const fetchDataWithLoading = async () => {
         try {
           setIsLoading(true);
 
           const response = await fetchData();
 
-          if (isMounted) {
-            setFetchedData(response);
-            setIsLoading(false);
-          }
+          setFetchedData(response);
         } catch (error) {
-          console.log("Error", error);
+          console.error("Error", error);
         } finally {
           setIsLoading(false);
         }
@@ -40,15 +34,14 @@ export const fetchDataWithLoad = <T, P extends FetchDataWithLoadProps<T>>(
       fetchDataWithLoading();
     }, []);
 
-    if (isLoading)
+    if (isLoading) {
       return (
         <div className="clip-loader">
           <ClipLoader size={150} />
         </div>
       );
+    }
 
-    return (
-      <WrappedComponent fetchedData={fetchedData as T} {...(props as P)} />
-    );
+    return <WrappedComponent data={fetchedData as T} {...(props as P)} />;
   };
 };

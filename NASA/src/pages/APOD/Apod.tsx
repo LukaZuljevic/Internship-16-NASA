@@ -1,21 +1,26 @@
 import "./APOD.css";
-import { fetchApodPicture } from "../../services/Apod";
+import { fetchApodPicture } from "../../services/ApodApi";
 import { ApodPicture } from "../../types";
 import { ApodList } from "../../components/ApodList";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
-import { getDate } from "../../utils";
+import { getDateRange } from "../../utils";
 
-const { today, pastDate } = getDate();
+const { today, startDate } = getDateRange(20);
 
-const PicturesAndLoad = fetchDataWithLoad<
+const PicturesWithLoad = fetchDataWithLoad<
   ApodPicture[],
   { data: ApodPicture[] }
->(ApodList, () => fetchApodPicture({ today, pastDate }));
+>(ApodList, () =>
+  fetchApodPicture({
+    startDate,
+    endDate: today,
+  })
+);
 
 export const Apod = () => {
   return (
     <section id="apod-page">
-      <PicturesAndLoad />
+      <PicturesWithLoad />
     </section>
   );
 };

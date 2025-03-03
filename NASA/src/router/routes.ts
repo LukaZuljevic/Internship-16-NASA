@@ -5,4 +5,5 @@ type Routes = {
 export const ROUTES: Routes = {
   HOME: "/",
   APOD: "/APOD",
+  APOD_ITEM: "/APOD/:date",
 };
