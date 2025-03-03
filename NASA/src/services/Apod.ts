@@ -1,9 +1,17 @@
 import { ApodPicture } from "../types";
 
-export const fetchApodPicture = async (): Promise<ApodPicture[]> => {
+type fetchApodPictureProps = {
+  today: string;
+  pastDate: string;
+};
+
+export const fetchApodPicture = async ({
+  today,
+  pastDate,
+}: fetchApodPictureProps): Promise<ApodPicture[]> => {
   try {
     const response = await fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=fhrfI3fyPa0wyLZcBLOwgeY5EznpxrPjAQeBIjZf&start_date=2025-02-10`
+      `https://api.nasa.gov/planetary/apod?api_key=fhrfI3fyPa0wyLZcBLOwgeY5EznpxrPjAQeBIjZf&start_date=${pastDate}&end_date=${today}`
     );
 
     const data = response.json();
