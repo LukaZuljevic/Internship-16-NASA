@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, PropsWithChildren } from "react";
-import { ThemeContext } from "./themeContext";
+import { ThemeContext } from "./ThemeContext";
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);

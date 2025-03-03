@@ -1,4 +1,6 @@
+import "./fetchDataWithLoading.css";
 import { ComponentType, useEffect, useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 type FetchDataFunction<T> = () => Promise<T>;
 
@@ -38,7 +40,12 @@ export const fetchDataWithLoad = <T, P extends FetchDataWithLoadProps<T>>(
       fetchDataWithLoading();
     }, []);
 
-    if (isLoading) return <div className="loading-spinner">Loading...</div>;
+    if (isLoading)
+      return (
+        <div className="clip-loader">
+          <ClipLoader size={150} />
+        </div>
+      );
 
     return (
       <WrappedComponent fetchedData={fetchedData as T} {...(props as P)} />
