@@ -7,10 +7,8 @@ export const Navigation = () => {
 
   return (
     <header id="header">
-      <h1>NASA APPLICATION</h1>
-      <div id="navigation">
         <p onClick={() => navigate(ROUTES.HOME)}>Home page</p>
-      </div>
+        <p onClick={() => navigate(ROUTES.APOD)}>APOD page</p>
     </header>
   );
 };
