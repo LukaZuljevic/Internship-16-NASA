@@ -4,7 +4,9 @@ import { ThemeContext } from "./themeContext";
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-  useEffect(() => {}, [isDarkMode]);
+  useEffect(() => {
+    document.body.className = isDarkMode ? "dark-mode" : "light-mode";
+  }, [isDarkMode]);
 
   const switchMode = () => {
     setIsDarkMode(!isDarkMode);

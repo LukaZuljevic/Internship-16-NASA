@@ -1,8 +1,11 @@
 import "./Home.css";
 import { Feature } from "../../components/Feature";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useTheme } from "../../hooks";
 
 export const Home = () => {
+  const { isDarkMode, switchMode } = useTheme();
+
   return (
     <section id="home-page">
       <div className="description-container">
@@ -27,7 +30,9 @@ export const Home = () => {
           header="🌍 Earth Imagery"
           text="Explore high-resolution satellite images of any location on Earth."
         />
-        <button></button>
+        <button onClick={switchMode}>
+          {isDarkMode ? "Light mode" : "Dark mode"}
+        </button>
       </div>
       <DotLottieReact
         className="planet-animation"
