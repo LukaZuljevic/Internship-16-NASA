@@ -30,7 +30,7 @@ export const Home = () => {
           header="🌍 Earth Imagery"
           text="Explore high-resolution satellite images of any location on Earth."
         />
-        <button onClick={switchMode}>
+        <button className="theme-switcher" onClick={switchMode}>
           {isDarkMode ? "Light mode" : "Dark mode"}
         </button>
       </div>
