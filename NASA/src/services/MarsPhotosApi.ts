@@ -16,25 +16,15 @@ export const fetchMarsPhotos = async ({
   earthDate,
 }: fetchMarsPhotosProps & { earthDate?: string }): Promise<MarsPhoto[]> => {
   try {
-    const url = `${NASA_API}${MARS_ROVER_PATH}/${rover}/photos?page=${page}${
+    const queryParams: string = `page=${page}${
       camera ? `&camera=${camera}` : ""
     }&earth_date=${earthDate}&api_key=${API_KEY}`;
-    console.log(
-      "page",
-      page,
-      "rover",
-      rover,
-      "camera",
-      camera,
-      "earthDate",
-      earthDate
+
+    const response = await fetch(
+      `${NASA_API}${MARS_ROVER_PATH}/${rover}/photos?${queryParams}`
     );
 
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`${response.status}`);
-    }
+    if (!response.ok) throw new Error(`${response.status}`);
 
     const data = await response.json();
 

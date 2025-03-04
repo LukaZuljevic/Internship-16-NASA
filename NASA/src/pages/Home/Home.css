@@ -1,33 +1,52 @@
 #home-page {
   display: flex;
-  align-items: center;
-}
-
-.description-container {
-  display: flex;
   flex-direction: column;
-  gap: 16px;
-  background-color: rgba(226, 221, 221, 0.279);
-  border-radius: 12px;
+  align-items: center;
+  justify-content: flex-start;
   padding: 32px;
-  margin: 128px;
-  height: 100%;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  color: var(--text-color);
 }
 
 .planet-animation {
-  width: 50%;
-  min-height: 60vh;
+  width: 60%;
+  height: 30vw;
+  margin-bottom: 40px;
+}
+
+.description-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.card {
+  background: url(../../assets/space.jpg);
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  transition: ease 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .theme-switcher {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 120px;
   height: 50px;
   border-radius: 50px;
   background-color: rgb(228, 226, 226);
   border: none;
   cursor: pointer;
-  margin: 0 auto;
+  margin-top: 20px;
+  color: var(--text-color);
 }

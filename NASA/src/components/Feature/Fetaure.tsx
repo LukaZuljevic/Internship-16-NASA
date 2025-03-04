@@ -7,7 +7,7 @@ type FeatureProps = {
 
 export const Feature = ({ header, text }: FeatureProps) => {
   return (
-    <div className="desc-festure">
+    <div className="desc-feature">
       <h1>{header}</h1>
       <p>{text}</p>
     </div>
