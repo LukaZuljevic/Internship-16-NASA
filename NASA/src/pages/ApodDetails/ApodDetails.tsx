@@ -1,14 +1,14 @@
-import "./ApodDetails.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchApodPicture } from "../../services/ApodApi";
 import { ApodPicture } from "../../types";
+import "./ApodDetails.css";
 
 export const ApodDetails = () => {
   const { date } = useParams<{ date?: string }>();
   const [data, setData] = useState<ApodPicture | null>(null);
 
-  if (!date) return <p>Dodaj ode onaj error handler!</p>;
+  if (!date) return <p>Error: No date provided</p>;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +20,7 @@ export const ApodDetails = () => {
 
         if (fetchedData) setData(fetchedData[0]);
       } catch (error) {
-        console.log("Error", error);
+        console.error("Error fetching APOD data", error);
       }
     };
 
@@ -28,15 +28,14 @@ export const ApodDetails = () => {
   }, [date]);
 
   return (
-    <section id="apod-details">
-      <div className="apod-image">
-        <img src={data?.url} alt={data?.title} />
-      </div>
+    <div className="apod-details-container">
+      <h1 className="apod-title">{data?.title}</h1>
+      <img src={data?.url} alt={data?.title} className="apod-image" />
+
       <div className="apod-info">
-        <h1>{data?.title}</h1>
         <p className="apod-date">{data?.date}</p>
         <p className="apod-description">{data?.explanation}</p>
       </div>
-    </section>
+    </div>
   );
 };

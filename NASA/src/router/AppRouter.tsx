@@ -5,6 +5,7 @@ import { Home } from "../pages/Home";
 import { Apod } from "../pages/APOD";
 import { ApodDetails } from "../pages/ApodDetails";
 import { MarsRover } from "../pages/MarsRover";
+import { MarsRoverDetails } from "../pages/MarsRoverDetails";
 
 export const AppRouter = () => {
   return (
@@ -15,6 +16,10 @@ export const AppRouter = () => {
           <Route path={ROUTES.APOD} element={<Apod />} />
           <Route path={ROUTES.APOD_ITEM} element={<ApodDetails />} />
           <Route path={ROUTES.MARS_ROVER_PHOTOS} element={<MarsRover />} />
+          <Route
+            path={ROUTES.MARS_ROVER_PHOTO_DETAILS}
+            element={<MarsRoverDetails />}
+          />
         </Route>
       </Routes>
     </Router>

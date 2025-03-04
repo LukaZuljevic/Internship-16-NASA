@@ -1,36 +1,38 @@
-.apod-details-container {
-  max-width: 1000px;
+.mars-rover-details-container {
+  max-width: 800px;
   margin: 40px auto;
   background: rgb(18, 18, 18, 0.9);
   color: white;
   border-radius: 10px;
 }
 
-.apod-title {
+.mars-rover-title {
   padding: 20px;
   font-size: 2.5rem;
   text-align: center;
   color: rgb(255, 204, 0);
 }
 
-.apod-image {
+.mars-rover-image {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
 }
 
-.apod-info {
+.mars-rover-info {
   padding: 20px;
   text-align: center;
 }
 
-.apod-date {
+.mars-rover-earth-date,
+.mars-rover-sol,
+.mars-rover-camera {
   color: rgb(170, 170, 170);
   margin-bottom: 15px;
 }
 
-.apod-description {
+.mars-rover-info p {
   font-size: 17px;
   line-height: 1.6;
 }
