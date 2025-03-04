@@ -9,6 +9,9 @@ export const Navigation = () => {
     <header id="header">
       <p onClick={() => navigate(ROUTES.HOME)}>Home page</p>
       <p onClick={() => navigate(ROUTES.APOD)}>APOD page</p>
+      <p onClick={() => navigate(ROUTES.MARS_ROVER_PHOTOS)}>
+        Mars rover photos
+      </p>
     </header>
   );
 };

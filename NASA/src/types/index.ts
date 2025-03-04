@@ -1,2 +1,4 @@
 export * from "./ApodPicture";
-export * from "./Routes";
+export * from "./MarsPhoto";
+export * from "./ThemeContextType";
+export * from "./RoverCameras";

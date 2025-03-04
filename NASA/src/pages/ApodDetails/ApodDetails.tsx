@@ -1,12 +1,14 @@
+import "./ApodDetails.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchApodPicture } from "../../services/ApodApi";
 import { ApodPicture } from "../../types";
-import "./ApodDetails.css";
 
 export const ApodDetails = () => {
-  const { date } = useParams<{ date: string }>();
+  const { date } = useParams<{ date?: string }>();
   const [data, setData] = useState<ApodPicture | null>(null);
+
+  if (!date) return <p>Dodaj ode onaj error handler!</p>;
 
   useEffect(() => {
     const fetchData = async () => {

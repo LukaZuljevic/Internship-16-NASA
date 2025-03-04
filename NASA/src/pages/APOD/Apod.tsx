@@ -1,4 +1,3 @@
-import "./APOD.css";
 import { fetchApodPicture } from "../../services/ApodApi";
 import { ApodPicture } from "../../types";
 import { ApodList } from "../../components/ApodList";

@@ -13,7 +13,7 @@ type ApodListProps = {
 };
 
 export const ApodList = ({ data }: ApodListProps) => {
-  const [pictures, setPictures] = useState<ApodPicture[] | []>(data);
+  const [pictures, setPictures] = useState<ApodPicture[]>(data);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { lastDate, setLastDate } = useLastDate({ data });
   const [dates, setDates] = useState<{
@@ -109,6 +109,7 @@ export const ApodList = ({ data }: ApodListProps) => {
         {pictures?.map((picture: ApodPicture, index) => {
           const isVideo = picture.media_type === "video";
           const isLastPicture = index === pictures.length - 1;
+          
           return (
             <ApodItem
               key={`${picture.date}-${index}`}

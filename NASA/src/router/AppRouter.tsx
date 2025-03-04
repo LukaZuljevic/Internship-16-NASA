@@ -4,6 +4,7 @@ import { ROUTES } from "./routes";
 import { Home } from "../pages/Home";
 import { Apod } from "../pages/APOD";
 import { ApodDetails } from "../pages/ApodDetails";
+import { MarsRover } from "../pages/MarsRover";
 
 export const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ export const AppRouter = () => {
           <Route index element={<Home />} />
           <Route path={ROUTES.APOD} element={<Apod />} />
           <Route path={ROUTES.APOD_ITEM} element={<ApodDetails />} />
+          <Route path={ROUTES.MARS_ROVER_PHOTOS} element={<MarsRover />} />
         </Route>
       </Routes>
     </Router>
