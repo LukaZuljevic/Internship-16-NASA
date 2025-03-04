@@ -1,0 +1,12 @@
+.no-photos {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.8rem;
+}
+
+.no-photos-image {
+  width: 250px;
+  height: auto;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}

@@ -3,7 +3,7 @@ import { MarsPhoto } from "../../types";
 import { MarsPhotos } from "../../components/MarsPhotos";
 import { fetchMarsPhotos } from "../../services/MarsPhotosApi";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { MarsPhotosFilter } from "../../components/MarsPhotosFilter";
 
 export const MarsRover = () => {
@@ -12,10 +12,14 @@ export const MarsRover = () => {
   const [camera, setCamera] = useState<string>("");
   const [earthDate, setEarthDate] = useState<string>("2022-02-02");
 
-  const MarsPhotosWithLoad = fetchDataWithLoad<
-    MarsPhoto[],
-    { data: MarsPhoto[] }
-  >(MarsPhotos, () => fetchMarsPhotos({ page, rover, camera, earthDate }));
+  const MarsPhotosWithLoad = useMemo(
+    () =>
+      fetchDataWithLoad<MarsPhoto[], { data: MarsPhoto[] }>(MarsPhotos, () =>
+        fetchMarsPhotos({ page, rover, camera, earthDate })
+      ),
+    [page, rover, camera, earthDate]
+  );
+
 
   return (
     <div className="#mars-rovers-photos-page">

@@ -60,6 +60,8 @@ export const MarsPhotosFilter = ({
 
   return (
     <div className="mars-photos-filter">
+      <button onClick={() => handlePageChange("back")}>&#8592;</button>
+
       <select onChange={handleRoverChange} value={rover}>
         <option value="curiosity">Curiosity</option>
         <option value="opportunity">Opportunity</option>
@@ -76,11 +78,7 @@ export const MarsPhotosFilter = ({
       </select>
 
       <input type="date" value={earthDate} onChange={handleEarthDateChange} />
-
-      <div className="page-change">
-        <button onClick={() => handlePageChange("back")}>&#8592;</button>
-        <button onClick={() => handlePageChange("next")}>&#8594;</button>
-      </div>
+      <button onClick={() => handlePageChange("next")}>&#8594;</button>
       <Toaster />
     </div>
   );

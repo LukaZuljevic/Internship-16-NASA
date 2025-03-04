@@ -1,0 +1,53 @@
+.mars-photos-filter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mars-photos-filter select,
+.mars-photos-filter input {
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
+  color: black;
+}
+
+.mars-photos-filter select {
+  width: 150px;
+}
+
+.mars-photos-filter button {
+  padding: 10px 15px;
+  border: none;
+  background-color: rgb(0, 26, 255);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.mars-photos-filter button:hover {
+  background-color: rgb(0, 66, 136);
+}
+
+@media (max-width: 600px) {
+  .mars-photos-filter {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mars-photos-filter button {
+    width: 50%;
+  }
+
+  .mars-photos-filter select,
+  .mars-photos-filter input {
+    width: 50%;
+  }
+}

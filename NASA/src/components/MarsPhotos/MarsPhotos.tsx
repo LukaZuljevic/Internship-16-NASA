@@ -1,20 +1,18 @@
-import { MarsPhoto } from "../../types";
 import "./MarsPhotos.css";
-import { useState } from "react";
+import { MarsPhoto } from "../../types";
 import { MarsPhotoCard } from "../MarsPhotoCard";
+import { NoMarsPhotos } from "../NoMarsPhotos/NoMarsPhots";
 
 type MarsPhotosProps = {
   data: MarsPhoto[];
 };
 
 export const MarsPhotos = ({ data }: MarsPhotosProps) => {
-  const [marsPhotos, setMarsPhotos] = useState<MarsPhoto[]>(data);
-
-  console.log(marsPhotos);
+  if (data.length === 0) return <NoMarsPhotos />;
 
   return (
     <div className="mars-photos-list">
-      {marsPhotos.map((photo: MarsPhoto) => (
+      {data.map((photo: MarsPhoto) => (
         <MarsPhotoCard key={photo.id} photo={photo} />
       ))}
     </div>
