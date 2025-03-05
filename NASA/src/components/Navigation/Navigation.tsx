@@ -12,6 +12,7 @@ export const Navigation = () => {
       <p onClick={() => navigate(ROUTES.MARS_ROVER_PHOTOS)}>
         Mars rover photos
       </p>
+      <p onClick={() => navigate(ROUTES.NEO)}>NEO</p>
     </header>
   );
 };

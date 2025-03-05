@@ -7,6 +7,7 @@ type fetchMarsPhotosProps = {
   page: number;
   rover: string;
   camera?: string;
+  earthDate: string;
 };
 
 export const fetchMarsPhotos = async ({
@@ -14,7 +15,7 @@ export const fetchMarsPhotos = async ({
   rover,
   camera,
   earthDate,
-}: fetchMarsPhotosProps & { earthDate?: string }): Promise<MarsPhoto[]> => {
+}: fetchMarsPhotosProps): Promise<MarsPhoto[]> => {
   const queryParams: string = `page=${page}${
     camera ? `&camera=${camera}` : ""
   }&earth_date=${earthDate}&api_key=${API_KEY}`;
