@@ -20,13 +20,13 @@ export const Home = () => {
       <div className="description-container">
         <div className="card" onClick={() => navigate(ROUTES.HOME)}>
           <Feature
-            header="🚀 NASA Explorer"
+            header="NASA Explorer"
             text="Discover space like never before! Explore images, track asteroids, and see Mars like a rover!"
           />
         </div>
         <div className="card" onClick={() => navigate(ROUTES.APOD)}>
           <Feature
-            header="🔭 Astronomy Picture of the Day (APOD)"
+            header="Astronomy Picture of the Day (APOD)"
             text="Browse a gallery of breathtaking space images with detailed explanations."
           />
         </div>
@@ -35,19 +35,19 @@ export const Home = () => {
           onClick={() => navigate(ROUTES.MARS_ROVER_PHOTOS)}
         >
           <Feature
-            header="🪐 Mars Rover Photos"
+            header="Mars Rover Photos"
             text="See the latest images taken by NASA's Mars rovers and filter by rover and camera."
           />
         </div>
         <div className="card" onClick={() => navigate(ROUTES.HOME)}>
           <Feature
-            header="🌍 Near Earth Objects (NEO) Tracker"
+            header="Near Earth Objects (NEO) Tracker"
             text="Monitor asteroids passing close to Earth with real-time data visualization."
           />
         </div>
         <div className="card" onClick={() => navigate(ROUTES.HOME)}>
           <Feature
-            header="🌍 Earth Imagery"
+            header="Earth Imagery"
             text="Explore high-resolution satellite images of any location on Earth."
           />
         </div>

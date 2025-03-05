@@ -1,4 +1,3 @@
-import "./MarsRover.css";
 import { MarsPhoto } from "../../types";
 import { MarsPhotos } from "../../components/MarsPhotos";
 import { fetchMarsPhotos } from "../../services/MarsPhotosApi";
@@ -19,7 +18,6 @@ export const MarsRover = () => {
       ),
     [page, rover, camera, earthDate]
   );
-
 
   return (
     <div className="#mars-rovers-photos-page">

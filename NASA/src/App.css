@@ -1,8 +1,8 @@
 :root {
-  --light-background: rgb(255, 255, 255);
+  --light-background: rgb(240, 240, 240);
   --dark-text: rgb(51, 51, 51);
 
-  --dark-background: rgb(51, 51, 51);
+  --dark-background: rgb(34, 34, 34);
   --light-text: rgb(255, 255, 255);
 
   --background-color: var(--light-background);

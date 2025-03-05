@@ -1,12 +1,16 @@
 import "./App.css";
 import { AppRouter } from "./router/AppRouter";
 import { ThemeProvider } from "./contexts/theme-context";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "./components/ErrorFallback";
 
 function App() {
   return (
-    <ThemeProvider>
-      <AppRouter />
-    </ThemeProvider>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 

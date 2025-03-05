@@ -12,26 +12,22 @@ export const fetchApodPicture = async ({
   startDate,
   endDate,
 }: fetchApodPictureProps): Promise<ApodPicture[]> => {
-  try {
-    const queryParams = `api_key=${API_KEY}&start_date=${startDate}&end_date=${endDate}`;
+  const queryParams = `api_key=${API_KEY}&start_date=${startDate}&end_date=${endDate}`;
 
-    const response = await fetch(`${NASA_API}${APOD_PATH}?${queryParams}`);
+  const response = await fetch(`${NASA_API}${APOD_PATH}?${queryParams}`);
 
-    if (!response.ok) throw new Error(`${response.status}`);
+  if (!response.ok)
+    throw new Error(`API error: ${response.status} ${response.statusText}`);
 
-    const data = await response.json();
+  const data = await response.json();
 
-    return data
-      .map((item: ApodPicture) => ({
-        date: item.date,
-        explanation: item.explanation,
-        media_type: item.media_type,
-        title: item.title,
-        url: item.url,
-      }))
-      .reverse();
-  } catch (error) {
-    console.log("Error", error);
-    return [];
-  }
+  return data
+    .map((item: ApodPicture) => ({
+      date: item.date,
+      explanation: item.explanation,
+      media_type: item.media_type,
+      title: item.title,
+      url: item.url,
+    }))
+    .reverse();
 };
