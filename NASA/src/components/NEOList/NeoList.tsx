@@ -1,6 +1,6 @@
 import { Neo } from "../../types";
 import "./NeoList.css";
-import { useState } from "react";
+import { NeoCard } from "../NeoCard";
 
 type NeoListProps = {
   data: Neo[];
@@ -8,8 +8,12 @@ type NeoListProps = {
 
 export const NeoList = ({ data }: NeoListProps) => {
   console.log("Data from component", data);
-  const [neoData, setNeoData] = useState<Neo[]>(data);
-  return neoData?.map((item: Neo) => {
-    return <h1>{item.name}</h1>;
-  });
+
+  return (
+    <div className="neo-list">
+      {data?.map((item: Neo) => {
+        return <NeoCard key={item.id} neoItem={item} />;
+      })}{" "}
+    </div>
+  );
 };

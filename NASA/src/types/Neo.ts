@@ -4,12 +4,12 @@ export type Neo = {
   absolute_magnitude_h: number;
   estimated_diameter: {
     kilometers: {
-      esitmated_diameter_min: number;
-      esitmated_diameter_max: number;
+      estimated_diameter_min: number;
+      estimated_diameter_max: number;
     };
     meters: {
-      esitmated_diameter_min: number;
-      esitmated_diameter_max: number;
+      estimated_diameter_min: number;
+      estimated_diameter_max: number;
     };
   };
   is_potentially_hazardous_asteroid: boolean;
@@ -23,7 +23,7 @@ export type Neo = {
         kilometers_per_hour: string;
       };
       miss_distance: {
-        kilometers: string;
+        lunar: string;
       };
       orbiting_body: string;
     }
