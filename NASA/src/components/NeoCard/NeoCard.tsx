@@ -20,7 +20,7 @@ export const NeoCard = ({ neoItem }: NeoItemProps) => {
     <div className="neo-card">
       <h2>{name}</h2>
       <p>
-        <strong>Absolute Magnitude:</strong> {absolute_magnitude_h}
+        <strong>Absolute Magnitude:</strong> {absolute_magnitude_h} H
       </p>
       <p>
         <strong>Estimated Diameter:</strong>{" "}

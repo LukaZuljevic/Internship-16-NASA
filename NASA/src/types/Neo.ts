@@ -16,16 +16,12 @@ export type Neo = {
   close_approach_data: [
     {
       close_approach_date: string;
-      close_approach_date_full: string;
-      epoch_date_close_approach: number;
       relative_velocity: {
-        kilometers_per_second: string;
         kilometers_per_hour: string;
       };
       miss_distance: {
-        lunar: string;
+        kilometers: string;
       };
-      orbiting_body: string;
     }
   ];
 };

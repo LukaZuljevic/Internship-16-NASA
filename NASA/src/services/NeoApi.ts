@@ -39,16 +39,12 @@ export const fetchNeo = async ({ startDate }: NeoApiProps): Promise<Neo[]> => {
 
     close_approach_data: item.close_approach_data.map((approach) => ({
       close_approach_date: approach.close_approach_date,
-      close_approach_date_full: approach.close_approach_date_full,
-      epoch_date_close_approach: approach.epoch_date_close_approach,
       relative_velocity: {
-        kilometers_per_second: approach.relative_velocity.kilometers_per_second,
         kilometers_per_hour: approach.relative_velocity.kilometers_per_hour,
       },
       miss_distance: {
-        lunar: approach.miss_distance.lunar,
+        kilometers: approach.miss_distance.kilometers,
       },
-      orbiting_body: approach.orbiting_body,
     })),
   }));
 };

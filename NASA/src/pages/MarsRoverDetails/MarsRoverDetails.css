@@ -1,6 +1,13 @@
+#mars-rover-details {
+  background: url(../../assets/mars-background.jpg);
+  background-size: contain;
+  padding: 20px;
+  min-height: 100vh;
+}
+
 .mars-rover-details-container {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 0px auto;
   background: rgb(18, 18, 18, 0.9);
   color: white;
   border-radius: 10px;

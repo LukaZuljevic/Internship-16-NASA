@@ -1,0 +1,5 @@
+#mars-rovers-photos-page {
+  background: url(../../assets/mars-background.jpg);
+  background-size: contain;
+  min-height: 100vh;
+}

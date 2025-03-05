@@ -12,19 +12,23 @@ export const MarsRoverDetails = () => {
   }, [location.state]);
 
   return (
-    <div className="mars-rover-details-container">
-      <h1 className="mars-rover-title">{photo?.rover.name} Rover</h1>
-      <img
-        src={photo?.img_src}
-        alt="Mars rover photo"
-        className="mars-rover-image"
-      />
+    <section id="mars-rover-details">
+      <div className="mars-rover-details-container">
+        <h1 className="mars-rover-title">{photo?.rover.name} Rover</h1>
+        <img
+          src={photo?.img_src}
+          alt="Mars rover photo"
+          className="mars-rover-image"
+        />
 
-      <div className="mars-rover-info">
-        <p className="mars-rover-earth-date">Earth Date: {photo?.earth_date}</p>
-        <p className="mars-rover-sol">Sol: {photo?.sol}</p>
-        <p className="mars-rover-camera">Camera: {photo?.camera.full_name}</p>
+        <div className="mars-rover-info">
+          <p className="mars-rover-earth-date">
+            Earth Date: {photo?.earth_date}
+          </p>
+          <p className="mars-rover-sol">Sol: {photo?.sol}</p>
+          <p className="mars-rover-camera">Camera: {photo?.camera.full_name}</p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };

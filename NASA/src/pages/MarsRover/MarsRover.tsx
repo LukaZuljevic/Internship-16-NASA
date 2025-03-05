@@ -4,6 +4,7 @@ import { fetchMarsPhotos } from "../../services/MarsPhotosApi";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { useState } from "react";
 import { MarsPhotosFilter } from "../../components/MarsPhotosFilter";
+import "./MarsRover.css";
 
 export const MarsRover = () => {
   const [page, setPage] = useState<number>(1);
@@ -17,7 +18,7 @@ export const MarsRover = () => {
   >(MarsPhotos, () => fetchMarsPhotos({ page, rover, camera, earthDate }));
 
   return (
-    <div className="#mars-rovers-photos-page">
+    <section id="mars-rovers-photos-page">
       <MarsPhotosFilter
         setPage={setPage}
         setRover={setRover}
@@ -29,6 +30,6 @@ export const MarsRover = () => {
         camera={camera}
       />
       <MarsPhotosWithLoad />
-    </div>
+    </section>
   );
 };

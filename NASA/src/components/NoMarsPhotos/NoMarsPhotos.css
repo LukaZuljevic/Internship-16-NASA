@@ -1,11 +1,15 @@
 .no-photos {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   font-size: 1.8rem;
+  min-height: 100vh;
 }
 
 .no-photos-image {
-  width: 250px;
+  width: 300px;
   height: auto;
   margin-bottom: 10px;
   opacity: 0.8;
