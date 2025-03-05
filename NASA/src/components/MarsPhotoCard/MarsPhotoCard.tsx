@@ -27,12 +27,8 @@ export const MarsPhotoCard = ({ photo }: MarsPhotoCardProps) => {
       />
       <div className="mars-photo-info">
         <h3>{photo.rover.name}</h3>
-        <p>
-          <strong>Camera:</strong> {photo.camera.full_name}
-        </p>
-        <p>
-          <strong>Date:</strong> {photo.earth_date}
-        </p>
+        <p>Camera:{photo.camera.full_name}</p>
+        <p>Date: {photo.earth_date}</p>
       </div>
     </div>
   );

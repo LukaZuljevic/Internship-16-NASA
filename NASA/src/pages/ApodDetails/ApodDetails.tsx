@@ -3,14 +3,17 @@ import { useParams } from "react-router-dom";
 import { fetchApodPicture } from "../../services/ApodApi";
 import { ApodPicture } from "../../types";
 import "./ApodDetails.css";
+import { useErrorHandler } from "../../hooks";
 
 export const ApodDetails = () => {
   const { date } = useParams<{ date?: string }>();
   const [data, setData] = useState<ApodPicture | null>(null);
-
-  if (!date) return <p>Error: No date provided</p>;
+  const { error, handleError, resetError } = useErrorHandler();
 
   useEffect(() => {
+    if (!date) return;
+    resetError();
+
     const fetchData = async () => {
       try {
         const fetchedData = await fetchApodPicture({
@@ -20,12 +23,14 @@ export const ApodDetails = () => {
 
         if (fetchedData) setData(fetchedData[0]);
       } catch (error) {
-        console.error("Error fetching APOD data", error);
+        handleError(error instanceof Error ? error : new Error(String(error)));
       }
     };
 
     fetchData();
   }, [date]);
+
+  if (error) throw error;
 
   return (
     <div className="apod-details-container">

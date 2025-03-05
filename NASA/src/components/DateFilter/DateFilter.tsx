@@ -1,11 +1,11 @@
 import "./DateFilter.css";
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 type DateFilterProps = {
   setDates: Dispatch<
     SetStateAction<{ startDate: string | null; endDate: string | null }>
   >;
-  onClearFilters: () => void;
+  handleClearFilters: () => void;
   currentDates: {
     startDate: string | null;
     endDate: string | null;
@@ -14,52 +14,40 @@ type DateFilterProps = {
 
 export const DateFilter = ({
   setDates,
-  onClearFilters,
+  handleClearFilters,
   currentDates,
 }: DateFilterProps) => {
-  const [startDate, setStartDate] = useState<string>("");
-  const [endDate, setEndDate] = useState<string>("");
-
-  useEffect(() => {
-    setStartDate(currentDates.startDate || "");
-    setEndDate(currentDates.endDate || "");
-  }, [currentDates]);
+  const { startDate, endDate } = currentDates;
 
   const handleDateChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    date: string
+    date: "startDate" | "endDate"
   ) => {
     const value = e.target.value;
-    date === "startDate" ? setStartDate(value) : setEndDate(value);
-
     setDates((prev) => ({
       ...prev,
       [date]: value || null,
     }));
   };
 
-  const handleClearFilters = () => {
-    setStartDate("");
-    setEndDate("");
-
+  const handleClearFilter = () => {
     setDates({ startDate: null, endDate: null });
-
-    if (startDate && endDate) onClearFilters();
+    handleClearFilters();
   };
 
   return (
     <div className="date-filter">
       <input
         type="date"
-        value={startDate}
+        value={startDate || ""}
         onChange={(e) => handleDateChange(e, "startDate")}
       />
       <input
         type="date"
-        value={endDate}
+        value={endDate || ""}
         onChange={(e) => handleDateChange(e, "endDate")}
       />
-      <button onClick={handleClearFilters}>Clear Filters</button>
+      <button onClick={handleClearFilter}>Clear Filters</button>
     </div>
   );
 };

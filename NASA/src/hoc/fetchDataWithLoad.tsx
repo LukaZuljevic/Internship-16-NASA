@@ -1,7 +1,7 @@
 import "./fetchDataWithLoading.css";
 import { ComponentType, useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import { useErrorHandler } from "../hooks/useErrorHandler";
+import { useErrorHandler } from "../hooks";
 
 type FetchDataFunction<T> = () => Promise<T>;
 

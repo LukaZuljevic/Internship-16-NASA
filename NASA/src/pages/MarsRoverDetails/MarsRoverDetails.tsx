@@ -16,7 +16,7 @@ export const MarsRoverDetails = () => {
       <h1 className="mars-rover-title">{photo?.rover.name} Rover</h1>
       <img
         src={photo?.img_src}
-        alt={"Mars rover photo"}
+        alt="Mars rover photo"
         className="mars-rover-image"
       />
 

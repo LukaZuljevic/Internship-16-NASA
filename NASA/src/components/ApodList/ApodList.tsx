@@ -7,23 +7,26 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { useLastDate } from "../../hooks";
 import { ApodItem } from "../ApodItem";
 import { DateFilter } from "../DateFilter";
+import { useErrorHandler } from "../../hooks/";
 
 type ApodListProps = {
   data: ApodPicture[];
 };
 
+type DateRange = {
+  startDate: string | null;
+  endDate: string | null;
+};
+
 export const ApodList = ({ data }: ApodListProps) => {
+  const { error, handleError, resetError } = useErrorHandler();
   const [pictures, setPictures] = useState<ApodPicture[]>(data);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { lastDate, setLastDate } = useLastDate({ data });
-  const [dates, setDates] = useState<{
-    startDate: string | null;
-    endDate: string | null;
-  }>({
+  const [dates, setDates] = useState<DateRange>({
     startDate: null,
     endDate: null,
   });
-
   const isDateFilterActive = dates.startDate !== null && dates.endDate !== null;
 
   const observer = useRef<IntersectionObserver | null>(null);
@@ -31,6 +34,7 @@ export const ApodList = ({ data }: ApodListProps) => {
 
   const fetchMoreItems = async () => {
     setIsLoading(true);
+    resetError();
     try {
       let fetchStartDate = dates.startDate;
       let fetchEndDate = dates.endDate;
@@ -53,11 +57,13 @@ export const ApodList = ({ data }: ApodListProps) => {
       if (newPictures.length > 0)
         setLastDate(newPictures[newPictures.length - 1].date);
     } catch (error) {
-      console.error("Error loading more pictures:", error);
+      handleError(error instanceof Error ? error : new Error(String(error)));
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (error) throw error;
 
   useEffect(() => {
     if (isDateFilterActive) fetchMoreItems();
@@ -102,14 +108,14 @@ export const ApodList = ({ data }: ApodListProps) => {
     <div className="apod-list">
       <DateFilter
         setDates={setDates}
-        onClearFilters={handleClearFilters}
+        handleClearFilters={handleClearFilters}
         currentDates={dates}
       />
       <ul>
         {pictures?.map((picture: ApodPicture, index) => {
           const isVideo = picture.media_type === "video";
           const isLastPicture = index === pictures.length - 1;
-          
+
           return (
             <ApodItem
               key={`${picture.date}-${index}`}

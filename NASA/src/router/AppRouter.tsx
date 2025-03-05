@@ -6,19 +6,92 @@ import { Apod } from "../pages/APOD";
 import { ApodDetails } from "../pages/ApodDetails";
 import { MarsRover } from "../pages/MarsRover";
 import { MarsRoverDetails } from "../pages/MarsRoverDetails";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const AppRouter = () => {
   return (
     <Router>
       <Routes>
         <Route path={ROUTES.HOME} element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path={ROUTES.APOD} element={<Apod />} />
-          <Route path={ROUTES.APOD_ITEM} element={<ApodDetails />} />
-          <Route path={ROUTES.MARS_ROVER_PHOTOS} element={<MarsRover />} />
+          <Route
+            index
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="home"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Home />
+                </motion.div>
+              </AnimatePresence>
+            }
+          />
+          <Route
+            path={ROUTES.APOD}
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="apod"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Apod />
+                </motion.div>
+              </AnimatePresence>
+            }
+          />
+          <Route
+            path={ROUTES.APOD_ITEM}
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="apodItem"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <ApodDetails />
+                </motion.div>
+              </AnimatePresence>
+            }
+          />
+          <Route
+            path={ROUTES.MARS_ROVER_PHOTOS}
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="marsRover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <MarsRover />
+                </motion.div>
+              </AnimatePresence>
+            }
+          />
           <Route
             path={ROUTES.MARS_ROVER_PHOTO_DETAILS}
-            element={<MarsRoverDetails />}
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="marsRoverDetails"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <MarsRoverDetails />
+                </motion.div>
+              </AnimatePresence>
+            }
           />
         </Route>
       </Routes>

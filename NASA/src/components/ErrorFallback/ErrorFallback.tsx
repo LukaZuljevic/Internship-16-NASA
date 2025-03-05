@@ -10,7 +10,7 @@ export const ErrorFallback = ({
   resetErrorBoundary,
 }: ErrorFallbackProps) => {
   return (
-    <div className="error-page">
+    <div id="error-page">
       <h1 className="error-background">ERROR</h1>
       <div className="error-content">
         <h2>🛑Something went wrong🛑</h2>
