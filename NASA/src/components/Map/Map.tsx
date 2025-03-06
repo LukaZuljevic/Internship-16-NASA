@@ -7,7 +7,7 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { LatLngExpression } from "leaflet";
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import "./Map.css";
 import { useFavoriteLocations } from "../../hooks";
 import "font-awesome/css/font-awesome.min.css";

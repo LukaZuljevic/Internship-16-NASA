@@ -1,0 +1,36 @@
+#not-found-apge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+  gap: 20px;
+}
+
+.UFO {
+  width: 50%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#not-found-apge h1 {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+#not-found-apge p {
+  font-size: 20px;
+}
+
+#not-found-apge button {
+  padding: 15px 25px;
+  font-size: 17px;
+  background-color: rgb(7, 141, 137);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

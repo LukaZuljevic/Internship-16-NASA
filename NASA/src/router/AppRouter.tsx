@@ -9,6 +9,7 @@ import { MarsRoverDetails } from "../pages/MarsRoverDetails";
 import { AnimatePresence, motion } from "framer-motion";
 import { NeoPage } from "../pages/NEO";
 import { EarthImagery } from "../pages/EarthImagery";
+import { NotFoundPage } from "../pages/404Page";
 
 export const AppRouter = () => {
   return (
@@ -129,6 +130,7 @@ export const AppRouter = () => {
             }
           />
         </Route>
+        <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />}></Route>
       </Routes>
     </Router>
   );

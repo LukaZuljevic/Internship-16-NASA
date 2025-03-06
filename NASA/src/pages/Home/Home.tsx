@@ -39,13 +39,13 @@ export const Home = () => {
             text="See the latest images taken by NASA's Mars rovers and filter by rover and camera."
           />
         </div>
-        <div className="card" onClick={() => navigate(ROUTES.HOME)}>
+        <div className="card" onClick={() => navigate(ROUTES.NEO)}>
           <Feature
             header="Near Earth Objects (NEO) Tracker"
             text="Monitor asteroids passing close to Earth with real-time data visualization."
           />
         </div>
-        <div className="card" onClick={() => navigate(ROUTES.HOME)}>
+        <div className="card" onClick={() => navigate(ROUTES.EARTH)}>
           <Feature
             header="Earth Imagery"
             text="Explore high-resolution satellite images of any location on Earth."
