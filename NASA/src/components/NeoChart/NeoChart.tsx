@@ -26,7 +26,7 @@ export const NeoChart = ({ startDate }: NeoChartProps) => {
         diameter: item.estimated_diameter.kilometers.estimated_diameter_max,
         closeApproachDate: item.close_approach_data[0].close_approach_date,
         missDistance: parseFloat(
-          item.close_approach_data[0].miss_distance.lunar
+          item.close_approach_data[0].miss_distance.kilometers
         ),
         relativeVelocity: parseFloat(
           item.close_approach_data[0].relative_velocity.kilometers_per_hour

@@ -13,6 +13,7 @@ export const Navigation = () => {
         Mars rover photos
       </p>
       <p onClick={() => navigate(ROUTES.NEO)}>NEO</p>
+      <p onClick={() => navigate(ROUTES.EARTH)}>Earth imagery</p>
     </header>
   );
 };

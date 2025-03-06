@@ -8,6 +8,7 @@ import { MarsRover } from "../pages/MarsRover";
 import { MarsRoverDetails } from "../pages/MarsRoverDetails";
 import { AnimatePresence, motion } from "framer-motion";
 import { NeoPage } from "../pages/NEO";
+import { EarthImagery } from "../pages/EarthImagery";
 
 export const AppRouter = () => {
   return (
@@ -106,6 +107,23 @@ export const AppRouter = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <NeoPage />
+                </motion.div>
+              </AnimatePresence>
+            }
+          />
+
+          <Route
+            path={ROUTES.EARTH}
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="EarthImagery"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <EarthImagery />
                 </motion.div>
               </AnimatePresence>
             }

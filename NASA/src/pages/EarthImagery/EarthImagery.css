@@ -1,0 +1,18 @@
+#earth-imagery {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  background: url(../../assets/earth-animation.gif) center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  #earth-imagery {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
