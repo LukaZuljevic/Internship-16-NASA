@@ -45,6 +45,7 @@ export const fetchNeo = async ({ startDate }: NeoApiProps): Promise<Neo[]> => {
       miss_distance: {
         kilometers: approach.miss_distance.kilometers,
       },
+      orbiting_body: approach.orbiting_body,
     })),
   }));
 };

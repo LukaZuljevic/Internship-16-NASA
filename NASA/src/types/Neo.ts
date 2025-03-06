@@ -22,6 +22,7 @@ export type Neo = {
       miss_distance: {
         kilometers: string;
       };
+      orbiting_body: string;
     }
   ];
 };

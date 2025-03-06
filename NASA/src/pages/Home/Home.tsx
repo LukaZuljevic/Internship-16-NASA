@@ -17,6 +17,7 @@ export const Home = () => {
         loop
         autoplay
       />
+
       <div className="description-container">
         <div className="card" onClick={() => navigate(ROUTES.HOME)}>
           <Feature
@@ -51,10 +52,10 @@ export const Home = () => {
             text="Explore high-resolution satellite images of any location on Earth."
           />
         </div>
-        <button className="theme-switcher" onClick={switchMode}>
-          {isDarkMode ? "Light mode" : "Dark mode"}
-        </button>
       </div>
+      <button className="theme-switcher" onClick={switchMode}>
+        {isDarkMode ? "Light mode" : "Dark mode"}
+      </button>
     </section>
   );
 };

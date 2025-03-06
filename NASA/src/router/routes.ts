@@ -11,4 +11,5 @@ export const ROUTES: Routes = {
   NEO: "/NEO",
   EARTH: "/Earth-imagery",
   NOT_FOUND: "*",
+  NEO_ORBIT: "/NEO/orbit/:id",
 };

@@ -7,7 +7,6 @@ type NeoListProps = {
 };
 
 export const NeoList = ({ data }: NeoListProps) => {
-
   return (
     <div className="neo-list">
       {data?.map((item: Neo) => {

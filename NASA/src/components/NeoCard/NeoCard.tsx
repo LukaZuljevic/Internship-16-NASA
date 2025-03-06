@@ -1,11 +1,14 @@
 import { Neo } from "../../types";
 import "./NeoCard.css";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../router/routes";
 
 type NeoItemProps = {
   neoItem: Neo;
 };
 
 export const NeoCard = ({ neoItem }: NeoItemProps) => {
+  const navigate = useNavigate();
   const {
     name,
     absolute_magnitude_h,
@@ -17,7 +20,12 @@ export const NeoCard = ({ neoItem }: NeoItemProps) => {
   const approach = close_approach_data[0];
 
   return (
-    <div className="neo-card">
+    <div
+      className="neo-card"
+      onClick={() =>
+        navigate(`${ROUTES.NEO}/orbit/${neoItem.id}`, { state: neoItem })
+      }
+    >
       <h2>{name}</h2>
       <p>
         <strong>Absolute Magnitude:</strong> {absolute_magnitude_h} H

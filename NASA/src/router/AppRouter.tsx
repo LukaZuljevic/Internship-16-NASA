@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { NeoPage } from "../pages/NEO";
 import { EarthImagery } from "../pages/EarthImagery";
 import { NotFoundPage } from "../pages/404Page";
+import { NeoOrbit } from "../pages/NeoOrbit";
 
 export const AppRouter = () => {
   return (
@@ -125,6 +126,22 @@ export const AppRouter = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <EarthImagery />
+                </motion.div>
+              </AnimatePresence>
+            }
+          />
+          <Route
+            path={ROUTES.NEO_ORBIT}
+            element={
+              <AnimatePresence>
+                <motion.div
+                  key="NeoOrbit"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <NeoOrbit />
                 </motion.div>
               </AnimatePresence>
             }

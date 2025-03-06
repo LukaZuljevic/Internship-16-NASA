@@ -16,11 +16,11 @@
 }
 
 .description-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
   margin-top: 20px;
 }
 
@@ -31,6 +31,7 @@
   cursor: pointer;
   padding: 20px;
   transition: ease 0.3s;
+  width: 400px;
 }
 
 .card:hover {
@@ -44,9 +45,10 @@
   width: 120px;
   height: 50px;
   border-radius: 50px;
-  background-color: rgb(228, 226, 226);
+  background-color: rgb(100, 111, 214);
   border: none;
   cursor: pointer;
   margin-top: 20px;
   color: var(--text-color);
+  font-weight: bold;
 }

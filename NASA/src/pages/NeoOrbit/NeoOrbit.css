@@ -1,0 +1,8 @@
+.orbit-page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  max-height: 100vh;
+}
