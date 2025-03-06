@@ -30,8 +30,6 @@ export const fetchEarthImages = async ({
     `${NASA_API}${EARTH_IMAGES_PATH}?${queryParams}`
   );
 
-  console.log(response);
-
   if (response.status === 404) {
     return {
       date: "",
