@@ -1,5 +1,5 @@
 import "./NeoPage.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NeoList } from "../../components/NEOList";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { fetchNeo } from "../../services";
@@ -18,6 +18,10 @@ export const NeoPage = () => {
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStartDate(e.target.value);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section id="NEO-page">

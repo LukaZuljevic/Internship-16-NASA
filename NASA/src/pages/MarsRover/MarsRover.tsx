@@ -2,7 +2,7 @@ import { MarsPhoto } from "../../types";
 import { MarsPhotos } from "../../components/MarsPhotos";
 import { fetchMarsPhotos } from "../../services/MarsPhotosApi";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MarsPhotosFilter } from "../../components/MarsPhotosFilter";
 import "./MarsRover.css";
 
@@ -16,6 +16,10 @@ export const MarsRover = () => {
     MarsPhoto[],
     { data: MarsPhoto[] }
   >(MarsPhotos, () => fetchMarsPhotos({ page, rover, camera, earthDate }));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section id="mars-rovers-photos-page">
