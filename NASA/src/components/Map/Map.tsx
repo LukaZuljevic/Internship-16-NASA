@@ -48,7 +48,11 @@ export const Map = ({ position, setPosition }: MapProps) => {
   };
 
   return (
-    <MapContainer center={[45, 15]} zoom={10} className="map">
+    <MapContainer
+      center={[43.50792421322874, 16.454463950358335]}
+      zoom={10}
+      className="map"
+    >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <ClickHandler setPosition={setPosition} />
       {position && (

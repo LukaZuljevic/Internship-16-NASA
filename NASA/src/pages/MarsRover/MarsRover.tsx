@@ -10,7 +10,7 @@ export const MarsRover = () => {
   const [page, setPage] = useState<number>(1);
   const [rover, setRover] = useState<string>("curiosity");
   const [camera, setCamera] = useState<string>("");
-  const [earthDate, setEarthDate] = useState<string>("2022-02-02");
+  const [earthDate, setEarthDate] = useState<string>("2023-02-02");
 
   const MarsPhotosWithLoad = fetchDataWithLoad<
     MarsPhoto[],

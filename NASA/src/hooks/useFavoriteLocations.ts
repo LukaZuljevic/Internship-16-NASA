@@ -22,7 +22,9 @@ export const useFavoriteLocations = (): useFavoriteLocationsReturn => {
   };
 
   const removeFavorite = (position: LatLngExpression) => {
-    const newFavorites = favorites.filter((item) => item.position !== position);
+    const newFavorites = favorites.filter((item) => {
+      item.position !== position;
+    });
     setFavorites(newFavorites);
     setItemToStorage("favorites", newFavorites);
   };

@@ -12,6 +12,13 @@
   background-color: var(--background-color);
 }
 
+.filter-and-map {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   #earth-imagery {
     flex-direction: column;

@@ -6,10 +6,12 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 type fetchEarthImagesProps = {
   position: LatLngExpression | null;
+  date: string;
 };
 
 export const fetchEarthImages = async ({
   position,
+  date,
 }: fetchEarthImagesProps): Promise<EarthImage> => {
   let lat: number;
   let lon: number;
@@ -24,7 +26,7 @@ export const fetchEarthImages = async ({
     lon = position.lng;
   }
 
-  const queryParams: string = `lon=${lon}&lat=${lat}&date=2025-01-01&dim=0.2&api_key=${API_KEY}`;
+  const queryParams: string = `lon=${lon}&lat=${lat}&date=${date}&dim=0.2&api_key=${API_KEY}`;
 
   const response = await fetch(
     `${NASA_API}${EARTH_IMAGES_PATH}?${queryParams}`
