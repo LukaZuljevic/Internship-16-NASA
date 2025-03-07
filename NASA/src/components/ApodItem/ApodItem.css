@@ -22,3 +22,16 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .apod-picture {
+    max-width: 400px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .apod-picture {
+    max-width: 300px;
+  }
+}

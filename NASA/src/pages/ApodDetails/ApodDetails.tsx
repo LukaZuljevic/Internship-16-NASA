@@ -33,13 +33,15 @@ export const ApodDetails = () => {
   if (error) throw error;
 
   return (
-    <section id="apod-details-container">
-      <h1 className="apod-title">{data?.title}</h1>
-      <img src={data?.url} alt={data?.title} className="apod-image" />
+    <section id="apod-details-page">
+      <div className="apod-details-container">
+        <h1 className="apod-title">{data?.title}</h1>
+        <img src={data?.url} alt={data?.title} className="apod-image" />
 
-      <div className="apod-info">
-        <p className="apod-date">{data?.date}</p>
-        <p className="apod-description">{data?.explanation}</p>
+        <div className="apod-info">
+          <p className="apod-date">{data?.date}</p>
+          <p className="apod-description">{data?.explanation}</p>
+        </div>
       </div>
     </section>
   );

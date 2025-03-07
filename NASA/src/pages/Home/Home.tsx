@@ -1,7 +1,6 @@
 import "./Home.css";
 import { Feature } from "../../components/Feature";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { useTheme } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/routes";
 
@@ -52,7 +51,6 @@ export const Home = () => {
           />
         </div>
       </div>
-      
     </section>
   );
 };

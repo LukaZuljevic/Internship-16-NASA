@@ -7,6 +7,8 @@
     rgb(17, 26, 112),
     rgb(15, 29, 155)
   );
+  --apod-date-bg: white;
+  --details-card-bg: rgba(211, 211, 211, 0.507);
 }
 
 * {
@@ -29,4 +31,6 @@ h1 {
     rgb(32, 50, 211),
     rgb(72, 88, 230)
   );
+  --apod-date-bg: rgb(24, 22, 22);
+  --details-card-bg: rgba(0, 0, 0, 0.363);
 }

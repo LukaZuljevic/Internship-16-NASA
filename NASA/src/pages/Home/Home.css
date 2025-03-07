@@ -27,7 +27,7 @@
 .card {
   background: url(../../assets/space.jpg);
   border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px rgba(70, 67, 65, 0.6);
   cursor: pointer;
   padding: 20px;
   transition: ease 0.3s;
@@ -35,5 +35,5 @@
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.07);
 }

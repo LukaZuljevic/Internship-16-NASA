@@ -1,3 +1,4 @@
+import { useTheme } from "../../hooks";
 import "./DateFilter.css";
 import { Dispatch, SetStateAction } from "react";
 
@@ -18,6 +19,7 @@ export const DateFilter = ({
   currentDates,
 }: DateFilterProps) => {
   const { startDate, endDate } = currentDates;
+  const { isDarkMode } = useTheme();
 
   const handleDateChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -41,11 +43,13 @@ export const DateFilter = ({
         type="date"
         value={startDate || ""}
         onChange={(e) => handleDateChange(e, "startDate")}
+        style={{ colorScheme: isDarkMode ? "dark" : "light" }}
       />
       <input
         type="date"
         value={endDate || ""}
         onChange={(e) => handleDateChange(e, "endDate")}
+        style={{ colorScheme: isDarkMode ? "dark" : "light" }}
       />
       <button onClick={handleClearFilter}>Clear Filters</button>
     </div>

@@ -3,6 +3,7 @@ import { ApodPicture } from "../../types";
 import { ApodList } from "../../components/ApodList";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { getDateRange } from "../../utils";
+import "./Apod.css";
 
 const { today, startDate } = getDateRange(20);
 
