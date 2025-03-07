@@ -14,13 +14,13 @@ export const Navigation = () => {
         {isDarkMode ? "Light mode" : "Dark mode"}
       </button>
       <nav className="navigation">
-        <p onClick={() => navigate(ROUTES.HOME)}>Home page</p>
-        <p onClick={() => navigate(ROUTES.APOD)}>APOD page</p>
+        <p onClick={() => navigate(ROUTES.HOME)}>/Home page/</p>
+        <p onClick={() => navigate(ROUTES.APOD)}>/APOD photos/</p>
         <p onClick={() => navigate(ROUTES.MARS_ROVER_PHOTOS)}>
-          Mars rover photos
+          /Mars rover photos/
         </p>
-        <p onClick={() => navigate(ROUTES.NEO)}>NEO</p>
-        <p onClick={() => navigate(ROUTES.EARTH)}>Earth imagery</p>
+        <p onClick={() => navigate(ROUTES.NEO)}>/NEO/</p>
+        <p onClick={() => navigate(ROUTES.EARTH)}>/Earth imagery/</p>
       </nav>
     </header>
   );

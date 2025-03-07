@@ -1,12 +1,12 @@
 :root {
-  --light-background: rgb(240, 240, 240);
-  --dark-text: rgb(51, 51, 51);
-
-  --dark-background: rgb(34, 34, 34);
-  --light-text: rgb(255, 255, 255);
-
-  --background-color: var(--light-background);
-  --text-color: var(--dark-text);
+  --background-color: rgb(240, 240, 240);
+  --text-color: rgb(31, 31, 31);
+  --nav-bg: rgb(79, 100, 209);
+  --theme-button-bg: linear-gradient(
+    120deg,
+    rgb(17, 26, 112),
+    rgb(15, 29, 155)
+  );
 }
 
 * {
@@ -21,6 +21,12 @@ h1 {
 }
 
 .dark-mode {
-  --background-color: var(--dark-background);
-  --text-color: var(--light-text);
+  --background-color: rgb(34, 34, 34);
+  --text-color: rgb(255, 255, 255);
+  --nav-bg: rgb(45, 61, 143);
+  --theme-button-bg: linear-gradient(
+    120deg,
+    rgb(32, 50, 211),
+    rgb(72, 88, 230)
+  );
 }
