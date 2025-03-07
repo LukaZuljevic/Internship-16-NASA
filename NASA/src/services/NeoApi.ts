@@ -8,12 +8,14 @@ type NeoApiProps = {
 };
 
 export const fetchNeo = async ({ startDate }: NeoApiProps): Promise<Neo[]> => {
-  const queryParams = `start_date=${startDate}&api_key=${API_KEY}`;
+  const queryParams: string = `start_date=${startDate}&api_key=${API_KEY}`;
 
   const response = await fetch(`${NASA_API}${NEO_PATH}?${queryParams}`);
 
-  if (!response.ok)
-    throw new Error(`API error: ${response.status} ${response.statusText}`);
+  if (!response.ok) {
+    const errorDetails = await response.text();
+    throw new Error(`${response.status} , ${errorDetails}`);
+  }
 
   const data = await response.json();
 

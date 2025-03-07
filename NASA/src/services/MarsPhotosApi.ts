@@ -24,8 +24,10 @@ export const fetchMarsPhotos = async ({
     `${NASA_API}${MARS_ROVER_PATH}/${rover}/photos?${queryParams}`
   );
 
-  if (!response.ok) throw new Error(`${response.status}`);
-
+  if (!response.ok) {
+    const errorDetails = await response.text();
+    throw new Error(`${response.status} , ${errorDetails}`);
+  }
   const data = await response.json();
 
   return data.photos.map((item: MarsPhoto) => ({

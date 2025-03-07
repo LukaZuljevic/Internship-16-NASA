@@ -16,8 +16,10 @@ export const fetchApodPicture = async ({
 
   const response = await fetch(`${NASA_API}${APOD_PATH}?${queryParams}`);
 
-  if (!response.ok)
-    throw new Error(`API error: ${response.status} ${response.statusText}`);
+  if (!response.ok) {
+    const errorDetails = await response.text();
+    throw new Error(`${response.status} , ${errorDetails}`);
+  }
 
   const data = await response.json();
 

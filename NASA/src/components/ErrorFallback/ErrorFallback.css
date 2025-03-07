@@ -3,9 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   color: var(--text-color);
   background-color: var(--background-color);
+  overflow: hidden;
 }
 
 .error-background {
@@ -31,7 +32,7 @@
 }
 
 .error-content p {
-  font-size: 5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 

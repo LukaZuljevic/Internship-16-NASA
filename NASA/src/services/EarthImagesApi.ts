@@ -38,6 +38,11 @@ export const fetchEarthImages = async ({
     };
   }
 
+  if (!response.ok) {
+    const errorDetails = await response.text();
+    throw new Error(`${response.status} , ${errorDetails}`);
+  }
+
   const data = await response.json();
 
   return data;
