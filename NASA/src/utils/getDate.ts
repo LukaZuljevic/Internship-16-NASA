@@ -1,4 +1,14 @@
-export const getDateRange = (daysToLoad = 20) => {
+type getDateRangeReturn = {
+  today: string;
+  startDate: string;
+};
+
+type getNextDateRangeReturn = {
+  endDateInfo: string;
+  startDateInfo: string;
+};
+
+export const getDateRange = (daysToLoad = 20): getDateRangeReturn => {
   const today = new Date();
 
   const startDate = new Date(today);
@@ -14,7 +24,10 @@ export const getDateRange = (daysToLoad = 20) => {
   };
 };
 
-export const getNextDateRange = (lastDate: string, daysToLoad = 20) => {
+export const getNextDateRange = (
+  lastDate: string,
+  daysToLoad = 20
+): getNextDateRangeReturn => {
   const endDate = new Date(lastDate);
   endDate.setDate(endDate.getDate() - 1);
 
