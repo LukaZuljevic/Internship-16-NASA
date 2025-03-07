@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/routes";
 
 export const Home = () => {
-  const { isDarkMode, switchMode } = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -53,9 +52,7 @@ export const Home = () => {
           />
         </div>
       </div>
-      <button className="theme-switcher" onClick={switchMode}>
-        {isDarkMode ? "Light mode" : "Dark mode"}
-      </button>
+      
     </section>
   );
 };

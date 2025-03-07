@@ -24,8 +24,3 @@ h1 {
   --background-color: var(--dark-background);
   --text-color: var(--light-text);
 }
-
-.light-mode {
-  --background-color: var(--light-background);
-  --text-color: var(--dark-text);
-}

@@ -1,30 +1,68 @@
 #header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  font-size: 1.7rem;
-  padding: 16px;
-  background-color: rgb(100, 111, 214);
-  color: white;
+  padding: 16px 34px;
+  background-color: rgb(68, 90, 200);
+  color: var(--text-color);
 }
 
-#header p {
+.navigation {
+  display: flex;
+  gap: 20px;
+}
+
+.navigation p {
   cursor: pointer;
   font-weight: bold;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  transition: color 0.3s ease;
+  text-decoration: underline;
 }
 
-#header p:hover {
-  text-decoration: underline;
-  color: rgb(13, 12, 65);
-}
-#header p:nth-child(3):hover {
-  text-decoration: underline;
-  color: rgb(219, 92, 19);
+.navigation p:hover {
+  color: rgb(199, 146, 104);
+  transform: translateY(-2px);
+  font-style: italic;
 }
 
-#header p:active {
+.navigation p:active {
   transform: scale(0.95);
+}
+
+.theme-switcher {
+  width: 140px;
+  height: 45px;
+  border-radius: 25px;
+  background: linear-gradient(120deg, rgb(32, 50, 211), rgb(72, 88, 230));
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.theme-switcher:hover {
+  background: linear-gradient(120deg, rgb(72, 88, 230), rgb(32, 50, 211));
+  transform: scale(1.05);
+}
+
+.theme-switcher:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .theme-switcher {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+  }
 }
