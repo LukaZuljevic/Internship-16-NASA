@@ -39,6 +39,8 @@ export const fetchDataWithLoad = <T, P extends FetchDataWithLoadProps<T>>(
       fetchDataWithLoading();
     }, []);
 
+    if (error) throw error;
+
     if (isLoading) {
       return (
         <div className="clip-loader">
@@ -46,8 +48,6 @@ export const fetchDataWithLoad = <T, P extends FetchDataWithLoadProps<T>>(
         </div>
       );
     }
-
-    if (error) throw error;
 
     return <WrappedComponent data={fetchedData as T} {...(props as P)} />;
   };

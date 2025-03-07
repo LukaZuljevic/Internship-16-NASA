@@ -10,7 +10,7 @@ export const useErrorHandler = (): ErrorHandlerReturn => {
   const [error, setError] = useState<Error | null>(null);
 
   const handleError = (err: Error) => {
-    console.log("Error - ", err);
+    console.log("error from hook:", err);
     setError(err);
   };
 

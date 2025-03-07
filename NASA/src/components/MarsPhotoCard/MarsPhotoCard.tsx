@@ -2,6 +2,7 @@ import "./MarsPhotoCard.css";
 import { MarsPhoto } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/routes";
+import { fallBackImage } from "../../constants";
 
 type MarsPhotoCardProps = {
   photo: MarsPhoto;
@@ -9,7 +10,6 @@ type MarsPhotoCardProps = {
 
 export const MarsPhotoCard = ({ photo }: MarsPhotoCardProps) => {
   const navigate = useNavigate();
-  const fallBackImage = "../../assets/fallbackImage.png";
 
   return (
     <div

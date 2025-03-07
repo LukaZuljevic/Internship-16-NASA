@@ -5,3 +5,5 @@ export * from "./useNeoData";
 export * from "./useFavoriteLocations";
 export * from "./useNeoOrbitAnimation";
 export * from "./useFetchMoreApodData";
+export * from "./useFetchApodPicture";
+export * from "./useLocalStorage";

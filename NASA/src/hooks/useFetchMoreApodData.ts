@@ -13,6 +13,11 @@ type UseFetchMoreApodDataProps = {
   setLastDate: Dispatch<SetStateAction<string>>;
 };
 
+type useFetchMoreApodDataProps = {
+  fetchMoreItems: () => void;
+  isLoading: boolean;
+};
+
 export const useFetchMoreApodData = ({
   startDate,
   endDate,
@@ -20,8 +25,8 @@ export const useFetchMoreApodData = ({
   isDateFilterActive,
   setPictures,
   setLastDate,
-}: UseFetchMoreApodDataProps) => {
-  const { handleError, resetError } = useErrorHandler();
+}: UseFetchMoreApodDataProps): useFetchMoreApodDataProps => {
+  const { error, handleError, resetError } = useErrorHandler();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchMoreItems = useCallback(async () => {
@@ -56,6 +61,7 @@ export const useFetchMoreApodData = ({
     }
   }, [startDate, endDate, lastDate, isDateFilterActive]);
 
+  if (error) throw error;
   return {
     fetchMoreItems,
     isLoading,

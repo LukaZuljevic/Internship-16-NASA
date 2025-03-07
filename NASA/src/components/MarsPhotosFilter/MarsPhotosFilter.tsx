@@ -1,6 +1,5 @@
 import "./MarsPhotosFilter.css";
 import { RoverCameras } from "../../types";
-import toast, { Toaster } from "react-hot-toast";
 import { Dispatch, SetStateAction } from "react";
 import { useTheme } from "../../hooks";
 
@@ -48,21 +47,12 @@ export const MarsPhotosFilter = ({
   };
 
   const handlePageChange = (direction: "next" | "back") => {
-    if (direction === "back" && page === 1) {
-      toast.error("Cannot go below page 1!");
-      return;
-    }
-
-    if (direction === "back" && page > 1) {
-      setPage(page - 1);
-    } else {
-      setPage(page + 1);
-    }
+    direction === "back" && page > 1 ? setPage(page - 1) : setPage(page + 1);
   };
 
   return (
     <div className="mars-photos-filter">
-      <button onClick={() => handlePageChange("back")}>
+      <button onClick={() => handlePageChange("back")} disabled={page === 1}>
         {page - 1} &#8592;
       </button>
 
@@ -74,7 +64,7 @@ export const MarsPhotosFilter = ({
 
       <select onChange={handleCameraChange} value={camera}>
         <option value="">All Cameras</option>
-        {roverCameras[rover]?.map((camera: string) => (
+        {roverCameras[rover].map((camera: string) => (
           <option key={camera} value={camera}>
             {camera}
           </option>
@@ -90,7 +80,6 @@ export const MarsPhotosFilter = ({
       <button onClick={() => handlePageChange("next")}>
         {page + 1} &#8594;
       </button>
-      <Toaster />
     </div>
   );
 };

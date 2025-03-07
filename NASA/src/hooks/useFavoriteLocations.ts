@@ -1,6 +1,7 @@
 import { LatLngExpression } from "leaflet";
 import { LocationData } from "../types";
 import { Dispatch, SetStateAction, useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 type useFavoriteLocationsReturn = {
   saveFavorite: (position: LatLngExpression) => void;
@@ -12,17 +13,18 @@ type useFavoriteLocationsReturn = {
 
 export const useFavoriteLocations = (): useFavoriteLocationsReturn => {
   const [favorites, setFavorites] = useState<LocationData[]>([]);
+  const { setItemToStorage } = useLocalStorage();
 
   const saveFavorite = (position: LatLngExpression) => {
     const newFavorites = [...favorites, { position, isFavorite: true }];
     setFavorites(newFavorites);
-    localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    setItemToStorage("favorites", newFavorites);
   };
 
   const removeFavorite = (position: LatLngExpression) => {
     const newFavorites = favorites.filter((item) => item.position !== position);
     setFavorites(newFavorites);
-    localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    setItemToStorage("favorites", newFavorites);
   };
 
   const isFavorite = (position: LatLngExpression) => {

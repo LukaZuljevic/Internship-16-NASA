@@ -9,8 +9,9 @@ import "leaflet/dist/leaflet.css";
 import { LatLngExpression } from "leaflet";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import "./Map.css";
-import { useFavoriteLocations } from "../../hooks";
+import { useFavoriteLocations, useLocalStorage } from "../../hooks";
 import "font-awesome/css/font-awesome.min.css";
+import { LocationData } from "../../types";
 
 type ClickHandlerProps = {
   setPosition: (position: LatLngExpression) => void;
@@ -24,10 +25,11 @@ type MapProps = {
 export const Map = ({ position, setPosition }: MapProps) => {
   const { isFavorite, setFavorites, handleFavoriteClick } =
     useFavoriteLocations();
+  const { getItemFromStorage } = useLocalStorage();
 
   useEffect(() => {
-    const storedFavorites = localStorage.getItem("favorites");
-    setFavorites(JSON.parse(storedFavorites || "[]"));
+    const storedFavorites: LocationData[] = getItemFromStorage("favorites");
+    setFavorites(storedFavorites);
   }, []);
 
   const ClickHandler = ({ setPosition }: ClickHandlerProps) => {

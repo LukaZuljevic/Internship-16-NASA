@@ -17,8 +17,6 @@ export const EarthImagery = () => {
     }
   >(EarthImages, () => fetchEarthImages({ position }));
 
-  console.log(position);
-
   return (
     <section id="earth-imagery">
       <Map position={position} setPosition={setPosition} />

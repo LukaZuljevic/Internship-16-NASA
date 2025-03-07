@@ -11,7 +11,7 @@ export const NeoList = ({ data }: NeoListProps) => {
     <div className="neo-list">
       {data?.map((item: Neo) => {
         return <NeoCard key={item.id} neoItem={item} />;
-      })}{" "}
+      })}
     </div>
   );
 };

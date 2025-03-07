@@ -17,7 +17,7 @@ export const NeoCard = ({ neoItem }: NeoItemProps) => {
     close_approach_data,
   } = neoItem;
 
-  const approach = close_approach_data[0];
+  const approachData = close_approach_data[0];
 
   return (
     <div
@@ -28,15 +28,16 @@ export const NeoCard = ({ neoItem }: NeoItemProps) => {
     >
       <h2>{name}</h2>
       <p>
-        <strong>Absolute Magnitude:</strong> {absolute_magnitude_h} H
+        <strong>Absolute Magnitude: </strong>
+        {absolute_magnitude_h} H
       </p>
       <p>
-        <strong>Estimated Diameter:</strong>{" "}
-        {estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)} -{" "}
+        <strong>Estimeted Diameter: </strong>
+        {estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)}-
         {estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km
       </p>
       <p>
-        <strong>Potentially Hazardous:</strong>{" "}
+        <strong>Potentially Hazardous: </strong>
         {is_potentially_hazardous_asteroid ? (
           <span className="hazardous">Yes</span>
         ) : (
@@ -44,11 +45,12 @@ export const NeoCard = ({ neoItem }: NeoItemProps) => {
         )}
       </p>
       <p>
-        <strong>Close Approach Date:</strong> {approach.close_approach_date}
+        <strong>Close Approach Date: </strong>
+        {approachData.close_approach_date}
       </p>
       <p>
-        <strong>Miss Distance:</strong>{" "}
-        {parseFloat(approach.miss_distance.kilometers).toFixed(2)} km
+        <strong>Miss Distance: </strong>
+        {parseFloat(approachData.miss_distance.kilometers).toFixed(1)} km
       </p>
     </div>
   );

@@ -2,11 +2,7 @@ import "./ApodList.css";
 import { useEffect, useRef, useState } from "react";
 import { ApodPicture, DateRange } from "../../types";
 import ClipLoader from "react-spinners/ClipLoader";
-import {
-  useFetchMoreApodData,
-  useLastDate,
-  useErrorHandler,
-} from "../../hooks";
+import { useFetchMoreApodData, useLastDate } from "../../hooks";
 import { ApodItem } from "../ApodItem";
 import { DateFilter } from "../DateFilter";
 
@@ -15,7 +11,6 @@ type ApodListProps = {
 };
 
 export const ApodList = ({ data }: ApodListProps) => {
-  const { error } = useErrorHandler();
   const [pictures, setPictures] = useState<ApodPicture[]>(data);
   const { lastDate, setLastDate } = useLastDate({ data });
   const [dates, setDates] = useState<DateRange>({
@@ -36,8 +31,6 @@ export const ApodList = ({ data }: ApodListProps) => {
     setPictures,
     setLastDate,
   });
-
-  if (error) throw error;
 
   useEffect(() => {
     if (isDateFilterActive) fetchMoreItems();
@@ -90,7 +83,7 @@ export const ApodList = ({ data }: ApodListProps) => {
 
           return (
             <ApodItem
-              key={`${picture.date}-${index}`}
+              key={picture.date}
               picture={picture}
               isVideo={isVideo}
               isLastPicture={isLastPicture}

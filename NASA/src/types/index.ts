@@ -5,3 +5,4 @@ export * from "./RoverCameras";
 export * from "./Neo";
 export * from "./EarthImage";
 export * from "./DateRange";
+export * from "./LocationData";
