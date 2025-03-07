@@ -1,6 +1,6 @@
 :root {
   --background-color: rgb(240, 240, 240);
-  --text-color: rgb(31, 31, 31);
+  --text-color: rgb(26, 26, 26);
   --nav-bg: rgb(79, 100, 209);
   --theme-button-bg: linear-gradient(
     120deg,
@@ -9,6 +9,7 @@
   );
   --apod-date-bg: white;
   --details-card-bg: rgba(211, 211, 211, 0.507);
+  --mars-rover-details-bg: rgba(211, 211, 211, 0.907);
 }
 
 * {
@@ -33,4 +34,5 @@ h1 {
   );
   --apod-date-bg: rgb(24, 22, 22);
   --details-card-bg: rgba(0, 0, 0, 0.363);
+  --mars-rover-details-bg: rgba(20, 20, 20, 0.907);
 }

@@ -38,5 +38,20 @@
 
 .apod-description {
   font-size: 17px;
-  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .apod-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 515px) {
+  .apod-title {
+    font-size: 1.5rem;
+  }
+  .apod-description {
+    font-size: 10px;
+    line-height: 1.6;
+  }
 }

@@ -2,6 +2,7 @@ import "./MarsPhotosFilter.css";
 import { RoverCameras } from "../../types";
 import toast, { Toaster } from "react-hot-toast";
 import { Dispatch, SetStateAction } from "react";
+import { useTheme } from "../../hooks";
 
 type MarsPhotosFilterProps = {
   setPage: (page: number) => void;
@@ -24,6 +25,7 @@ export const MarsPhotosFilter = ({
   page,
   camera,
 }: MarsPhotosFilterProps) => {
+  const { isDarkMode } = useTheme();
   const roverCameras: RoverCameras = {
     curiosity: ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"],
     opportunity: ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"],
@@ -79,7 +81,12 @@ export const MarsPhotosFilter = ({
         ))}
       </select>
 
-      <input type="date" value={earthDate} onChange={handleEarthDateChange} />
+      <input
+        type="date"
+        value={earthDate}
+        onChange={handleEarthDateChange}
+        style={{ colorScheme: isDarkMode ? "dark" : "light" }}
+      />
       <button onClick={() => handlePageChange("next")}>
         {page + 1} &#8594;
       </button>

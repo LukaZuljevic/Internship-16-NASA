@@ -23,10 +23,14 @@ export const MarsRoverDetails = () => {
 
         <div className="mars-rover-info">
           <p className="mars-rover-earth-date">
-            Earth Date: {photo?.earth_date}
+            <strong>Earth Date:</strong> {photo?.earth_date}
           </p>
-          <p className="mars-rover-sol">Sol: {photo?.sol}</p>
-          <p className="mars-rover-camera">Camera: {photo?.camera.full_name}</p>
+          <p className="mars-rover-sol">
+            <strong>Sol:</strong> {photo?.sol}
+          </p>
+          <p className="mars-rover-camera">
+            <strong>Camera:</strong> {photo?.camera.full_name}
+          </p>
         </div>
       </div>
     </section>
