@@ -1,16 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Layout } from "../pages/Layout";
 import { ROUTES } from "./routes";
-import { Home } from "../pages/Home";
-import { Apod } from "../pages/APOD";
-import { ApodDetails } from "../pages/ApodDetails";
-import { MarsRover } from "../pages/MarsRover";
-import { MarsRoverDetails } from "../pages/MarsRoverDetails";
 import { AnimatePresence, motion } from "framer-motion";
-import { NeoPage } from "../pages/NEO";
-import { EarthImagery } from "../pages/EarthImagery";
-import { NotFoundPage } from "../pages/404Page";
-import { NeoOrbit } from "../pages/NeoOrbit";
+import {
+  NotFoundPage,
+  Layout,
+  Home,
+  Apod,
+  ApodDetails,
+  MarsRover,
+  MarsRoverDetails,
+  NeoPage,
+  NeoOrbit,
+  EarthImagery,
+} from "../pages/";
 
 export const AppRouter = () => {
   return (
@@ -26,7 +28,7 @@ export const AppRouter = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <Home />
                 </motion.div>

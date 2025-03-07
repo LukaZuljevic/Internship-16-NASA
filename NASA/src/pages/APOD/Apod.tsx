@@ -5,6 +5,14 @@ import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { getDateRange } from "../../utils";
 import "./Apod.css";
 
+export const Apod = () => {
+  return (
+    <section id="apod-page">
+      <PicturesWithLoad />
+    </section>
+  );
+};
+
 const { today, startDate } = getDateRange(20);
 
 const PicturesWithLoad = fetchDataWithLoad<
@@ -16,11 +24,3 @@ const PicturesWithLoad = fetchDataWithLoad<
     endDate: today,
   })
 );
-
-export const Apod = () => {
-  return (
-    <section id="apod-page">
-      <PicturesWithLoad />
-    </section>
-  );
-};

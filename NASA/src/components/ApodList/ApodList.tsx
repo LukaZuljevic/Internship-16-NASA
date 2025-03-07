@@ -1,67 +1,41 @@
 import "./ApodList.css";
 import { useEffect, useRef, useState } from "react";
-import { ApodPicture } from "../../types";
-import { fetchApodPicture } from "../../services/ApodApi";
-import { getNextDateRange } from "../../utils";
+import { ApodPicture, DateRange } from "../../types";
 import ClipLoader from "react-spinners/ClipLoader";
-import { useLastDate } from "../../hooks";
+import {
+  useFetchMoreApodData,
+  useLastDate,
+  useErrorHandler,
+} from "../../hooks";
 import { ApodItem } from "../ApodItem";
 import { DateFilter } from "../DateFilter";
-import { useErrorHandler } from "../../hooks/";
 
 type ApodListProps = {
   data: ApodPicture[];
 };
 
-type DateRange = {
-  startDate: string | null;
-  endDate: string | null;
-};
-
 export const ApodList = ({ data }: ApodListProps) => {
-  const { error, handleError, resetError } = useErrorHandler();
+  const { error } = useErrorHandler();
   const [pictures, setPictures] = useState<ApodPicture[]>(data);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { lastDate, setLastDate } = useLastDate({ data });
   const [dates, setDates] = useState<DateRange>({
     startDate: null,
     endDate: null,
   });
-  const isDateFilterActive = dates.startDate !== null && dates.endDate !== null;
 
   const observer = useRef<IntersectionObserver | null>(null);
   const lastPictureRef = useRef<HTMLLIElement | null>(null);
 
-  const fetchMoreItems = async () => {
-    setIsLoading(true);
-    resetError();
-    try {
-      let fetchStartDate = dates.startDate;
-      let fetchEndDate = dates.endDate;
+  const isDateFilterActive = dates.startDate !== null && dates.endDate !== null;
 
-      if (!isDateFilterActive) {
-        const { startDateInfo, endDateInfo } = getNextDateRange(lastDate);
-        fetchStartDate = startDateInfo;
-        fetchEndDate = endDateInfo;
-      }
-
-      const newPictures = await fetchApodPicture({
-        startDate: fetchStartDate,
-        endDate: fetchEndDate,
-      });
-
-      isDateFilterActive
-        ? setPictures(newPictures)
-        : setPictures((prev) => [...prev, ...newPictures]);
-
-      if (newPictures.length > 0)
-        setLastDate(newPictures[newPictures.length - 1].date);
-    } catch (error) {
-      handleError(error instanceof Error ? error : new Error(String(error)));
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { fetchMoreItems, isLoading } = useFetchMoreApodData({
+    startDate: dates.startDate,
+    endDate: dates.endDate,
+    lastDate,
+    isDateFilterActive,
+    setPictures,
+    setLastDate,
+  });
 
   if (error) throw error;
 
@@ -75,9 +49,7 @@ export const ApodList = ({ data }: ApodListProps) => {
     if (observer.current) observer.current.disconnect();
 
     const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.9,
+      threshold: 0.2,
     };
 
     observer.current = new IntersectionObserver((entries) => {
