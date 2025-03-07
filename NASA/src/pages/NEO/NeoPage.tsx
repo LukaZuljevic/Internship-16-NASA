@@ -1,11 +1,11 @@
 import "./NeoPage.css";
 import { useEffect, useState } from "react";
-import { NeoList } from "../../components/NEOList";
+import { NeoList } from "../../components/NEO/NEOList";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { fetchNeo } from "../../services";
 import { Neo } from "../../types";
 import { formatDate } from "../../utils";
-import { NeoChart } from "../../components/NeoChart";
+import { NeoChart } from "../../components/NEO/NeoChart";
 
 export const NeoPage = () => {
   const [startDate, setStartDate] = useState<string>(formatDate(new Date()));

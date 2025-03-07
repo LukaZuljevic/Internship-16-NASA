@@ -1,10 +1,10 @@
 import "./EarthImagery.css";
-import { Map } from "../../components/Map";
-import { useState } from "react";
+import { Map } from "../../components/EarthImagery/Map";
+import { useState, useCallback, useMemo } from "react";
 import { LatLngExpression } from "leaflet";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { EarthImage } from "../../types";
-import { EarthImages } from "../../components/EarthImages";
+import { EarthImages } from "../../components/EarthImagery/EarthImages";
 import { fetchEarthImages } from "../../services/EarthImagesApi";
 import { formatDate } from "../../utils";
 import { useTheme } from "../../hooks";
@@ -16,12 +16,18 @@ export const EarthImagery = () => {
   ]);
   const [date, setDate] = useState<string>(formatDate(new Date()));
 
-  const EarthImageWithLoading = fetchDataWithLoad<
-    EarthImage,
-    {
-      data: EarthImage;
-    }
-  >(EarthImages, () => fetchEarthImages({ position, date }));
+  const fetchEarthImagesData = useCallback(() => {
+    return fetchEarthImages({ position, date });
+  }, [position, date]);
+
+  const EarthImageWithLoading = useMemo(() => {
+    return fetchDataWithLoad<
+      EarthImage,
+      {
+        data: EarthImage;
+      }
+    >(EarthImages, fetchEarthImagesData);
+  }, [fetchEarthImagesData]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);
@@ -34,7 +40,7 @@ export const EarthImagery = () => {
           <input
             type="date"
             value={date || ""}
-            onChange={(e) => handleDateChange(e)}
+            onChange={handleDateChange}
             style={{ colorScheme: isDarkMode ? "dark" : "light" }}
           />
         </div>

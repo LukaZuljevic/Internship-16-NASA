@@ -1,5 +1,5 @@
 import "./Home.css";
-import { Feature } from "../../components/Feature";
+import { Feature } from "../../components/Home/Feature";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/routes";

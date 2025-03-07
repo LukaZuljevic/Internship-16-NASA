@@ -1,5 +1,5 @@
 import "./EarthImages.css";
-import { EarthImage } from "../../types";
+import { EarthImage } from "../../../types";
 
 type EarthImageProps = {
   data: EarthImage;

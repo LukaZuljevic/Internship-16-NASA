@@ -1,6 +1,6 @@
 import { fetchApodPicture } from "../../services/ApodApi";
 import { ApodPicture } from "../../types";
-import { ApodList } from "../../components/ApodList";
+import { ApodList } from "../../components/APOD/ApodList";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { getDateRange } from "../../utils";
 import "./Apod.css";

@@ -1,5 +1,5 @@
-import { Neo } from "../../types";
-import { useNeoData } from "../../hooks";
+import { Neo } from "../../../types";
+import { useNeoData } from "../../../hooks";
 import {
   LineChart,
   Line,

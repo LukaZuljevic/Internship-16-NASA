@@ -1,9 +1,9 @@
 import { MarsPhoto } from "../../types";
-import { MarsPhotos } from "../../components/MarsPhotos";
+import { MarsPhotos } from "../../components/Mars/MarsPhotos";
 import { fetchMarsPhotos } from "../../services/MarsPhotosApi";
 import { fetchDataWithLoad } from "../../hoc/fetchDataWithLoad";
 import { useEffect, useState } from "react";
-import { MarsPhotosFilter } from "../../components/MarsPhotosFilter";
+import { MarsPhotosFilter } from "../../components/Mars/MarsPhotosFilter";
 import "./MarsRover.css";
 
 export const MarsRover = () => {

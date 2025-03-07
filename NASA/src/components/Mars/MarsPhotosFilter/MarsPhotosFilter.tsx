@@ -1,7 +1,7 @@
 import "./MarsPhotosFilter.css";
-import { RoverCameras } from "../../types";
+import { RoverCameras } from "../../../types";
 import { Dispatch, SetStateAction } from "react";
-import { useTheme } from "../../hooks";
+import { useTheme } from "../../../hooks";
 
 type MarsPhotosFilterProps = {
   setPage: (page: number) => void;

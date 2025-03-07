@@ -16,7 +16,7 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
       document.body.classList.remove("dark-mode");
       setItemToStorage("theme", "light");
     }
-  });
+  }, [isDarkMode]);
 
   const switchMode = () => {
     setIsDarkMode(!isDarkMode);

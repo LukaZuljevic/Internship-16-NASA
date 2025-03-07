@@ -1,8 +1,8 @@
 import "./ApodList.css";
 import { useEffect, useRef, useState } from "react";
-import { ApodPicture, DateRange } from "../../types";
+import { ApodPicture, DateRange } from "../../../types";
 import ClipLoader from "react-spinners/ClipLoader";
-import { useFetchMoreApodData, useLastDate } from "../../hooks";
+import { useFetchMoreApodData, useLastDate } from "../../../hooks";
 import { ApodItem } from "../ApodItem";
 import { DateFilter } from "../DateFilter";
 

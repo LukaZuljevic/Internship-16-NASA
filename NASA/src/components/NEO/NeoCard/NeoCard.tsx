@@ -1,7 +1,7 @@
-import { Neo } from "../../types";
+import { Neo } from "../../../types";
 import "./NeoCard.css";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../router/routes";
+import { ROUTES } from "../../../router/routes";
 
 type NeoItemProps = {
   neoItem: Neo;

@@ -1,4 +1,4 @@
-import { Neo } from "../../types";
+import { Neo } from "../../../types";
 import "./NeoList.css";
 import { NeoCard } from "../NeoCard";
 

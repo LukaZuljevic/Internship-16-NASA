@@ -1,5 +1,5 @@
 import "./MarsPhotos.css";
-import { MarsPhoto } from "../../types";
+import { MarsPhoto } from "../../../types";
 import { MarsPhotoCard } from "../MarsPhotoCard";
 import { NoMarsPhotos } from "../NoMarsPhotos/NoMarsPhots";
 

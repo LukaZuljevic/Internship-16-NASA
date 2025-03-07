@@ -9,9 +9,9 @@ import "leaflet/dist/leaflet.css";
 import { LatLngExpression } from "leaflet";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import "./Map.css";
-import { useFavoriteLocations, useLocalStorage } from "../../hooks";
+import { useFavoriteLocations, useLocalStorage } from "../../../hooks";
 import "font-awesome/css/font-awesome.min.css";
-import { LocationData } from "../../types";
+import { LocationData } from "../../../types";
 
 type ClickHandlerProps = {
   setPosition: (position: LatLngExpression) => void;

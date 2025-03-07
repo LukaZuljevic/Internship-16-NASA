@@ -1,8 +1,8 @@
 import "./MarsPhotoCard.css";
-import { MarsPhoto } from "../../types";
+import { MarsPhoto } from "../../../types";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../router/routes";
-import { fallBackImage } from "../../constants";
+import { ROUTES } from "../../../router/routes";
+import { fallBackImage } from "../../../constants";
 
 type MarsPhotoCardProps = {
   photo: MarsPhoto;

@@ -1,8 +1,8 @@
 import "./ApodItem.css";
-import { ApodPicture } from "../../types";
+import { ApodPicture } from "../../../types";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../router/routes";
-import { fallBackImage } from "../../constants";
+import { ROUTES } from "../../../router/routes";
+import { fallBackImage } from "../../../constants";
 
 type ApodItemProps = {
   picture: ApodPicture;
