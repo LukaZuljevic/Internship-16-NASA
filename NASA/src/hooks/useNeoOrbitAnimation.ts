@@ -24,6 +24,7 @@ import {
   SphereGeometry,
   WebGLRenderer,
 } from "three";
+import { useTheme } from "./useTheme";
 
 type useNeoOrbitAnimationProps = {
   neoData: Neo | null;
@@ -35,32 +36,33 @@ export const useNeoOrbitAnimation = ({
   animationRef,
 }: useNeoOrbitAnimationProps) => {
   const isEarth = neoData?.close_approach_data[0].orbiting_body === "Earth";
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     if (!neoData || !animationRef.current) return;
 
-    const scene: Scene = createScene();
+    const scene: Scene = createScene(isDarkMode);
     const camera: Camera = createCamera();
     const renderer: WebGLRenderer = createRenderer(animationRef.current);
     const light: Light = createLight();
     scene.add(light);
 
     const neo: Mesh<SphereGeometry, MeshStandardMaterial, Object3DEventMap> =
-      createNeo(neoData);
+      createNeo(neoData, isDarkMode);
     scene.add(neo);
 
     const centerBody: Mesh<
       SphereGeometry,
       MeshStandardMaterial,
       Object3DEventMap
-    > = createCenterBody(isEarth);
+    > = createCenterBody(isEarth, isDarkMode);
     scene.add(centerBody);
 
     const orbitPath: Line<
       BufferGeometry<NormalBufferAttributes>,
       LineBasicMaterial,
       Object3DEventMap
-    > = createOrbitPath(neoData);
+    > = createOrbitPath(neoData, isDarkMode);
     scene.add(orbitPath);
 
     let angle = 0;
@@ -84,5 +86,5 @@ export const useNeoOrbitAnimation = ({
       renderer.setAnimationLoop(null);
       renderer.dispose();
     };
-  }, []);
+  }, [isDarkMode]);
 };

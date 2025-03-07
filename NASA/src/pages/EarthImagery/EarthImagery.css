@@ -5,9 +5,11 @@
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  background: url(../../assets/earth-animation.gif) center center;
+  background: url(../../assets/planet-earth.png) center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-size: 30%;
+  background-color: var(--background-color);
 }
 
 @media (max-width: 768px) {

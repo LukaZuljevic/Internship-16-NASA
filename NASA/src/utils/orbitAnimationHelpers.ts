@@ -2,9 +2,9 @@ import * as THREE from "three";
 import { Neo } from "../types";
 import { Material } from "three";
 
-export const createScene = () => {
+export const createScene = (isDarkMode: boolean) => {
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xffffff);
+  scene.background = new THREE.Color(isDarkMode ? 0x111111 : 0xffffff);
   return scene;
 };
 
@@ -33,31 +33,39 @@ export const createLight = () => {
   return light;
 };
 
-export const createNeo = (neoData: Neo) => {
+export const createNeo = (neoData: Neo, isDarkMode: boolean) => {
   const geometry = new THREE.SphereGeometry(
     neoData.estimated_diameter.kilometers.estimated_diameter_max * 3,
     100,
     100
   );
   const material = new THREE.MeshStandardMaterial({
-    color: 0x808080,
+    color: isDarkMode ? 0xaaaaaa : 0x808080,
   });
   return new THREE.Mesh(geometry, material);
 };
 
-export const createCenterBody = (isEarth: boolean) => {
+export const createCenterBody = (isEarth: boolean, isDarkMode: boolean) => {
   const geometry = new THREE.SphereGeometry(isEarth ? 1 : 3, 50, 50);
   const material = new THREE.MeshStandardMaterial({
-    color: isEarth ? 0x0000ff : 0xffff00,
+    color: isEarth
+      ? isDarkMode
+        ? 0x4444ff
+        : 0x0000ff
+      : isDarkMode
+      ? 0xffdd44
+      : 0xffff00,
   });
   return new THREE.Mesh(geometry, material);
 };
 
-export const createOrbitPath = (neoData: Neo) => {
+export const createOrbitPath = (neoData: Neo, isDarkMode: boolean) => {
   const isEarth = neoData.close_approach_data[0].orbiting_body === "Earth";
   const orbitRadius = isEarth ? 8 : 10;
   const geometry = new THREE.BufferGeometry();
-  const material = new THREE.LineBasicMaterial({ color: 0x808080 });
+  const material = new THREE.LineBasicMaterial({
+    color: isDarkMode ? 0x666666 : 0x808080,
+  });
 
   const orbitPoints = [];
   for (let i = 0; i <= 300; i++) {
@@ -73,7 +81,6 @@ export const createOrbitPath = (neoData: Neo) => {
   geometry.setFromPoints(orbitPoints);
   return new THREE.Line(geometry, material);
 };
-
 export const clearScene = (obj: any) => {
   while (obj.children.length > 0) {
     clearScene(obj.children[0]);

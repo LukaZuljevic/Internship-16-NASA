@@ -1,5 +1,5 @@
 .neo-card {
-  border: 2px solid rgb(226, 222, 222);
+  border: 2px solid var(--background-color);
   border-radius: 10px;
   padding: 16px;
   background-color: rgb(26, 26, 46);
@@ -7,6 +7,15 @@
   width: 370px;
   display: flex;
   flex-direction: column;
+}
+
+.neo-card:hover {
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
+.neo-card:active {
+  transform: scale(0.95);
 }
 
 .neo-card h2 {
@@ -28,4 +37,10 @@
 .not-hazardous {
   color: green;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .neo-card {
+    width: 300px;
+  }
 }
